@@ -1,7 +1,7 @@
 import { server } from "../utils/server.js";
 
 
-export const appConfig = () =>{
+export const runConfigurations = () =>{
     server.loadEnv()
     server.setTemplatesDir('templates')
     server.setViewEngine('ejs')    

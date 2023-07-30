@@ -1,20 +1,19 @@
 import {app} from '../app.js';
-import { debugg } from '../zghost/app/init.js';
-import { http } from '../zghost/app/init.js';
+import { host } from '../zghost/app/process.js';
+import { server as webserver } from '../zghost/utils/server.js';
+import { debugg } from '../zghost/app/init.js'
+
 
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+const port = host.normalizePort(process.env.PORT || '3000');
 
-/**
- * Create HTTP server.
- */
+webserver.setPort(port)
 
-const server = http.createServer(app);
+const server = host.creatHttpServer(app)
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -24,23 +23,6 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-	const port = parseInt(val, 10);
-
-	if (isNaN(port)) {
-		return val;
-	}
-
-	if (port >= 0) {
-		return port;
-	}
-
-	return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.

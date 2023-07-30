@@ -11,6 +11,9 @@ class Server{
         app.set('views', dirname)
     }
 
+    setPort = (port) =>{
+        app.set('port', port)
+    }
     setViewEngine = (engine) =>{
         app.set('view engine', engine)
     }

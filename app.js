@@ -4,15 +4,17 @@ import {
     renderErrors 
 } from './zghost/utils/errors.js';
 import { indexRouter } from './routes/index.js'
-import { appConfig } from './zghost/app/config.js';
+import { runConfigurations } from './zghost/app/config.js';
 
-appConfig()
+runConfigurations()
 
 app.use('/', indexRouter);
 
+
+//Only development
 app.use(catchErros);
 app.use(renderErrors);
 
 
 
-export {app}
+export { app }
