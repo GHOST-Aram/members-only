@@ -1,6 +1,6 @@
 import { app } from './zghost/app/init.js';
 import { express } from './zghost/app/init.js';
-import createHttpError from 'http-errors';
+import { catchAndForward404Erros, handle404Errors } from './zghost/utils/errors.js';
 import { logger } from './zghost/app/init.js';
 import { indexRouter } from './routes/index.js'
 import { usersRouter } from './routes/users.js'
@@ -17,20 +17,9 @@ app.use(express.static('static'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createHttpError(404));
-});
+app.use(catchAndForward404Erros);
+app.use(handle404Errors);
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
 
 export {app}
