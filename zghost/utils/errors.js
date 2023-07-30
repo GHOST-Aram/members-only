@@ -1,5 +1,5 @@
 import createHttpError from "http-errors";
-import { render, attachStatus } from "./http-response";
+import { render, attachStatus } from "./http-response.js";
 
 export const catchAndForward404Erros = (req, res, next) => {
     next(createHttpError(404));
@@ -10,6 +10,6 @@ export const handle404Errors = (err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-    attachStatus(err.status || 500);
+    attachStatus(res, err.status || 500);
     render(res, 'error', {title: `Error | ${err.message}`});
   }
