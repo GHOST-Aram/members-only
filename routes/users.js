@@ -1,4 +1,4 @@
-import express from 'express'
+import { express } from "../zghost/app/init.js";
 
 
 const usersRouter = express.Router();

@@ -1,8 +1,7 @@
 import {app} from '../app.js';
-import debugg from 'debug';
-import http from 'http'
+import { debugg } from '../zghost/app/init.js';
+import { http } from '../zghost/app/init.js';
 
-const debug = debugg('members-only:server');
 
 /**
  * Get port from environment and store in Express.
@@ -82,5 +81,5 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debugg('Listening on ' + bind);
 }

@@ -1,19 +1,15 @@
+import { app } from './zghost/app/init.js';
+import { express } from './zghost/app/init.js';
 import createHttpError from 'http-errors';
-import express from 'express'
-import morgan from 'morgan'
+import { logger } from './zghost/app/init.js';
 import { indexRouter } from './routes/index.js'
 import { usersRouter } from './routes/users.js'
-
-
-const logger = morgan;
-
-const app = express();
 
 // view engine setup
 app.set('views', 'templates');
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
+app.use(logger());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('static'));
