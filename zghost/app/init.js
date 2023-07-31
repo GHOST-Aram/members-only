@@ -1,11 +1,21 @@
-import express from 'express'
-import morgan from "morgan"
 import debug from "debug"
+import express from 'express'
+import expressAsyncHandler from 'express-async-handler'
 import http from 'http'
+import morgan from "morgan"
 import { Router } from 'express'
 
-export const app = express()
-export const logger = () => morgan('dev')
-export const debugg = debug('members-only:server')
+const app = express()
+const logger = () => morgan('dev')
+const debugg = debug('members-only:server')
+const asyncHandler = expressAsyncHandler
 
-export { express, Router, http }
+export { 
+    app,
+    asyncHandler,
+    debugg,
+    express, 
+    http,
+    logger,
+    Router, 
+}

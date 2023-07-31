@@ -1,7 +1,7 @@
 import { ModelSchema, Model } from "../zghost/db/model.js";
 
 const userSchema = new ModelSchema({
-    fist_name: {
+    first_name: {
         type: String,
         required: true,
         minLength: 2,
@@ -20,6 +20,13 @@ const userSchema = new ModelSchema({
         required: true,
         minLength: 10,
         maxLength: 200,
+    },
+
+    username: {
+        type: String,
+        required: true,
+        minlength: 2,
+        maxlength: 100,
     },
 
     password: {
