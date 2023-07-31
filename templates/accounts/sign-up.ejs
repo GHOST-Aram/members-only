@@ -1,0 +1,96 @@
+<%-include('../partials/head.ejs') %>
+<body>
+    <%-include('../partials/nav.ejs') %>
+    <main>
+
+        <h1>Sign Up for the club.</h1>
+        <form action="" method="post">
+            <div>
+                <label for="first-name">
+                    First Name
+                    <input 
+                        placeholder="John" 
+                        name="first_name" 
+                        id="first-name" 
+                        minlength="2" 
+                        maxlength="200" 
+                        required 
+                        type="text"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="last-name">
+                    Last Name
+                    <input 
+                        placeholder="Doe" 
+                        name="last_name" 
+                        id="last-name" 
+                        minlength="2" 
+                        maxlength="200" 
+                        required 
+                        type="text"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="email">
+                    Email
+                    <input 
+                        placeholder="xyz@gmail.com" 
+                        name="email" 
+                        id="email" 
+                        minlength="10" 
+                        maxlength="200" 
+                        required 
+                        type="email"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="username">
+                    Username
+                    <input 
+                        placeholder="username" 
+                        name="username" 
+                        id="username" 
+                        minlength="2" 
+                        maxlength="100" 
+                        required 
+                        type="text"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="password">
+                    Password
+                    <input 
+                        placeholder="password" 
+                        name="" id="" 
+                        minlength="8" 
+                        maxlength="24" 
+                        required 
+                        type="password"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="confirm-password">
+                    Confirm Password
+                    <input 
+                        placeholder="retype password" 
+                        name="confirm_password" 
+                        id="confirm-password" 
+                        minlength="8" 
+                        maxlength="24" 
+                        required 
+                        type="password"
+                    >
+                </label>
+            </div>
+           <div><input type="submit" value="Sign Up"></div>
+        </form>
+    </main>
+    <%-include('../partials/footer.ejs') %>
+</body>
+</html>
