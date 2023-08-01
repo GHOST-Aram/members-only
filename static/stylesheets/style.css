@@ -10,7 +10,7 @@ a {
 body {
   padding-inline: clamp(1rem, calc(1rem + 8vw), 10%);
   background-color: rgba(188, 188, 188, 0.531);
-
+  
 }
 
 
@@ -19,6 +19,7 @@ form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: auto;
 }
 
 input{

@@ -1,0 +1,39 @@
+<%-include('../partials/head.ejs') %>
+<body>
+    <%-include('../partials/nav.ejs') %>
+    <main>
+        <form action="" method="post">
+            <h1>Sign in.</h1>
+            <div>
+                <label for="username">
+                    Username
+                    <input 
+                        placeholder="username" 
+                        name="username" 
+                        id="username" 
+                        minlength="2" 
+                        maxlength="100" 
+                        required 
+                        type="text"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="password">
+                    Password
+                    <input 
+                        placeholder="password" 
+                        name="" id="" 
+                        minlength="8" 
+                        maxlength="24" 
+                        required 
+                        type="password"
+                    >
+                </label>
+            </div>
+           <div><input type="submit" value="Sign Up"></div>
+        </form>
+    </main>
+    <%-include('../partials/footer.ejs') %>
+</body>
+</html>

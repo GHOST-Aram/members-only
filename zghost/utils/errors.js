@@ -1,5 +1,5 @@
 import createHttpError from "http-errors";
-import { render, attachStatus } from "./http-response.js";
+import { render, status } from "./http-response.js";
 
 export const catchErros = (req, res, next) => {
     next(createHttpError(404));
@@ -10,6 +10,6 @@ export const renderErrors = (err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
   
-    attachStatus(res, err.status || 500);
+    status(res, err.status || 500);
     render(res, 'error', {title: `Error | ${err.message}`});
   }

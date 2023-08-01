@@ -1,9 +1,9 @@
 import { Router } from '../zghost/app/init.js'
-import { display_signup_form, register_user } from './views.js'
+import { signup_get, signup_post } from './views/registration.js'
 
 const accountsRouter = Router()
 
-accountsRouter.get('/sign-up', display_signup_form)
-accountsRouter.post('/sign-up', register_user)
+accountsRouter.get('/sign-up', signup_get)
+accountsRouter.post('/sign-up', signup_post)
 
 export { accountsRouter }
