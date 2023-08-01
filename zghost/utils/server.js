@@ -3,8 +3,10 @@ import { app, express } from "../app/init.js";
 import { connect } from "mongoose";
 import morgan from "morgan";
 class Server{
-    connectToMongoDB = async(DB_URI) =>{
-        return await connect(DB_URI)
+    connectToMongoDB = (DB_URI) =>{
+        connect(DB_URI).then(
+            result => console.log('SeRver successfully connected to MongoDB')
+        ).catch(error => console.error(error))
     }
     loadEnv = () =>{
         config
