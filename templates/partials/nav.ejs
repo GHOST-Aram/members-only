@@ -8,8 +8,9 @@
                     <li><a href="/club-house/members/join">Join</a></li>
                 <%}%>
                 <%if(user.isAdmin){%>
-                    <li><a href="/club-house/members">Members</a></li>
                     <li><a href="/admin/member-pass">Set Passcode</a></li>
+                    <li><a href="/club-house/members">Members</a></li>
+                    <li><a href="/club-house/attendants">All Attendants</a></li>
                 <%}%>
                 <p style="color: green;">Welcome <%=user.first_name%></p>
                 <li>

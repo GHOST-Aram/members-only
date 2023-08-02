@@ -31,3 +31,10 @@ export const member_list = asyncHandler(async(req, res) =>{
         title: 'Club Members', members
     })
 })
+
+export const attendants_get = asyncHandler(async(req, res) =>{
+    const allAttendants = await db.findAll(User)
+    render(res, 'club-house/members-list', {
+        title: 'All Attendants', members: allAttendants
+    })
+})
