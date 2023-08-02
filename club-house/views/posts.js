@@ -16,7 +16,7 @@ export const post_post = (req, res) =>{
 export const post_details = asyncHandler(async(req, res) =>{
     if(!req.isAuthenticated()){
         redirect(res, '/accounts/login')
-    } if(res.locals.user.isAdmin){
+    } if(res.locals.user.isMember){
         const post = await db.findByIdWithPopulate(
             Post, req.params.id, ['author']
         )
@@ -25,7 +25,7 @@ export const post_details = asyncHandler(async(req, res) =>{
             post
         })
     } else{
-        res.sendStatus(403)//unauthorized
+        render(res, 'unauthorized', {title: 'Unauthorized'})
     }
 })
 

@@ -28,14 +28,16 @@ body {
   padding-block-end: 15vh;
 }
 
-.delete-btn{
-  background-color: red;
+button{
   color: white;
   font-weight: 500;
   border: solid 2px white;
   border-radius: 4px;
   padding-inline: 1rem;
   padding-block: .4rem;
+}
+.delete-btn{
+  background-color: red;
 }
 
 form{
@@ -70,6 +72,10 @@ footer p{
   padding-block: 1rem;
   background-color: #000;
   color: white;
+}
+
+.membership-btn{
+  background-color: rgb(4, 71, 193);
 }
 nav ul{
   list-style: none;
