@@ -9,6 +9,6 @@ accountsRouter.get('/login', login_get)
 accountsRouter.post('/login', login_post)
 accountsRouter.get('/sign-up', signup_get)
 accountsRouter.post('/sign-up', signup_post)
-accountsRouter.get('/logout', logout)
+accountsRouter.get('/logout', logout )
 
 export { accountsRouter }

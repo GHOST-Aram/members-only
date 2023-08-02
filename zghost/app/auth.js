@@ -41,7 +41,6 @@ class Authentication{
             if(err) 
                 return next(err)
         })
-        next()
     }
 
     registerUser = async ({first_name, last_name, email, username, password}) =>{
@@ -53,6 +52,8 @@ class Authentication{
                 username: username,
                 email: email,
                 password: hashedPasscode,
+                isAdmin: true,
+                isMember: true
             } )
         })
     }
