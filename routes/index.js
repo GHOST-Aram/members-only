@@ -1,10 +1,8 @@
+import { index } from "../club-house/views/index.js";
 import { express } from "../zghost/app/init.js";
-import { render } from "../zghost/utils/http-response.js";
 
 const indexRouter = express.Router();
 
-indexRouter.get('/',(req, res, next) =>{
-  render(res, 'club-house/index', { title: 'Express' });
-});
+indexRouter.get('/', index);
 
 export { indexRouter}

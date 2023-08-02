@@ -1,6 +1,7 @@
 *{
-  color: #151616;
-  font: 1.3rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: hsl(180, 2%, 8%);
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1.3rem;
 }
 
 a {
@@ -21,7 +22,9 @@ form{
   gap: 1rem;
   margin: auto;
 }
-
+h2{
+  font-weight: 300;
+}
 input, textarea{
   width: 100%;
   padding-inline: 1rem;
@@ -34,8 +37,9 @@ input[type=submit]{
   background-color: rgb(74, 242, 74);
   font-weight: 500;
 }
-footer{
+footer p{
   margin: auto;
+  text-align: center;
 }
 nav ul{
   list-style: none;

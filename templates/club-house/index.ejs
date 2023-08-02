@@ -2,6 +2,18 @@
 <body>
     <%-include('../partials/nav.ejs') %>
     <h1>Welcome to Club house</h1>
+    <% if(posts.length){ %>
+        <ul>
+            <% posts.map(post =>{ %>
+                <li>
+                    <a href="/">
+                        <h2><%=post.title%></h2>
+                    </a>
+                </li>
+          <%})%>
+        </ul>
+    <%}%>
     <%-include('../partials/footer.ejs') %>
+
 </body>
 </html>
