@@ -1,7 +1,7 @@
 <%-include('../partials/head.ejs') %>
 <body>
     <%-include('../partials/nav.ejs') %>
-    <h1>Club Members</h1>
+    <h1><%=title%></h1>
     <% if(members.length){ %>
         <ul>
             <% members.map(member =>{ %>

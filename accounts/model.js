@@ -49,7 +49,7 @@ userSchema.virtual('name').get(function(){
 })
 
 userSchema.virtual('url').get(function(){
-    return `/club-house/membsers/${this._id}`
+    return `/club-house/attendants/${this._id}`
 })
 
 export const User = new Model('User', userSchema)

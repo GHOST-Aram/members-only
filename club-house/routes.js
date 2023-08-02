@@ -1,5 +1,7 @@
 import { Router } from '../zghost/app/init.js'
+import { redirect } from '../zghost/utils/http-response.js'
 import { 
+    attendant_details,
     attendants_get,
     join_get, 
     join_post, 
@@ -14,7 +16,12 @@ import {
 
 const clubRouter = Router()
 
+clubRouter.get('/membsers/:id', (req, res) =>{
+    redirect(res, '/attendants/:id')
+})
+
 clubRouter.get('/attendants', attendants_get)
+clubRouter.get('/attendants/:id', attendant_details)
 clubRouter.get('/members', member_list)
 clubRouter.get('/members/join', join_get)
 clubRouter.post('/members/join', join_post)

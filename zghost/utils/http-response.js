@@ -13,6 +13,14 @@ export const render404 = (res, template, context) =>{
     res.status(404).render(template, context)
 }
 
+export const render403 = (res, template) =>{
+    res.status(403).render(template, {title: 'Forbiden'})
+}
+
+export const render401 = (res, template) =>{
+    res.status(401).render(template, {title: 'Unauthorized'})
+}
+
 export const sendStatus = (res, errorcode) =>{
     res.sendStatus(errorcode)
 }
