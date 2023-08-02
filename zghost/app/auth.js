@@ -52,8 +52,6 @@ class Authentication{
                 username: username,
                 email: email,
                 password: hashedPasscode,
-                isAdmin: true,
-                isMember: true
             } )
         })
     }
