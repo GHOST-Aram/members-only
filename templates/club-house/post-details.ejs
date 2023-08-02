@@ -6,9 +6,14 @@
         <h1><%=post.title%></h1>
         <blockquote><%=post.message%> </blockquote>
         <%if(user.isMember){%>
+            <h2 class="author">
+                Author: 
             <%if(post.author){ %>
-                <h2 class="author">Author: <%=post.author.name%></h2>
+                    <%=post.author.name%>
+            <%} else {%>
+                Anonymous
             <%}%>
+            </h2>
         <%}%>
         <% if(user.isAdmin){ %>
             <a href="<%=post.url%>/delete">
