@@ -19,15 +19,15 @@ export const runConfigurations = () =>{
     // Authentication framwork
    auth.setupSession({
     secrete: process.env.SECRETE,
-    maxAge: 3600,
+    maxAge: 24 * 3600 * 1000,
     mongoUri: process.env.MONGODB_URI
    })
     
+   auth.initialize()
+   auth.authenticateSession()
    auth.useLocalStrategy()
    auth.serializeUser()
    auth.deserializeUser()
-   auth.initialize()
-   auth.authenticateSession()
     
 
 

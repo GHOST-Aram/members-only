@@ -14,6 +14,7 @@ aside{
   width: 230px;
   background: #000;
   height: 100vh;
+  top: 0;
 }
 body {
   padding-inline: clamp(1rem, calc(1rem + 8vw), 10%);

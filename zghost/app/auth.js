@@ -4,7 +4,8 @@ import { User } from "../../accounts/model.js"
 import { db } from "../db/database.js"
 import { app } from "./init.js"
 import LocalStrategy from 'passport-local'
-import { enableSession } from "../utils/session.js"
+import session from "express-session"
+import MongoStore from "connect-mongo"
 
 class Authentication{
 
@@ -43,10 +44,16 @@ class Authentication{
         next()
     }
 
-    registerUser = async (document) =>{
-        hash(document.password, 10, async(err, hashedPasscode) =>{
+    registerUser = async ({first_name, last_name, email, username, password}) =>{
+        hash(password, 10, async(err, hashedPasscode) =>{
             if(err) throw err
-            await db.createAndSaveDocument(User, document)
+            await db.createAndSaveDocument(User,{
+                first_name: first_name,
+                last_name: last_name,
+                username: username,
+                email: email,
+                password: hashedPasscode,
+            } )
         })
     }
 
@@ -57,10 +64,16 @@ class Authentication{
     }
 
     setupSession = ({secrete, maxAge, mongoUri}) =>{
-        app.use(enableSession({
-            secrete: secrete,
-            maxAge: maxAge,
-            mongoUri: mongoUri
+        app.use(session({
+            secret: secrete,
+            resave: false,
+            saveUninitialized: true,
+            store: MongoStore.create({
+                mongoUrl: mongoUri
+            }),
+            cookie: {
+                maxAge: maxAge
+            }
         }))
     }
 
