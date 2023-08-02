@@ -4,10 +4,10 @@
     <h1>Post</h1>
     <% if(user && post){ %>
         <h1><%=post.title%></h1>
-        <p><%=post.message%></p>
+        <blockquote><%=post.message%> </blockquote>
         <%if(user.isAdmin){%>
             <%if(post.author){ %>
-                <h2>Author: <%=post.author%></h2>
+                <h2 class="author">Author: <%=post.author.name%></h2>
             <%}%>
             <a href="<%=post.url%>/delete">
                 <button class="delete-btn">Delete</button>

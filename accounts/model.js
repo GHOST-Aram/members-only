@@ -44,4 +44,7 @@ const userSchema = new ModelSchema({
     }
 })
 
+userSchema.virtual('name').get(function(){
+    return `${this.first_name} ${this.last_name}`
+})
 export const User = new Model('User', userSchema)

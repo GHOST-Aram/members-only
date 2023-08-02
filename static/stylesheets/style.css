@@ -16,6 +16,11 @@ aside{
   height: 100vh;
   top: 0;
 }
+
+.author{
+  text-align: right;
+  font-style: italic;
+}
 body {
   padding-inline: clamp(1rem, calc(1rem + 8vw), 10%);
   background-color: rgba(188, 188, 188, 0.531);

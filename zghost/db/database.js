@@ -18,6 +18,10 @@ class DB{
         return await Model.findOne(document)
     }
 
+    findByIdWithPopulate = async(Model, id, refs) =>{
+        return await Model.findById(id)
+            .populate(refs.join(' '))
+    }
 }
 
 export const db = new DB()
