@@ -43,16 +43,10 @@ class Authentication{
         next()
     }
 
-    registerUser = async ({first_name, last_name, email, username, password}) =>{
-        hash(password, 10, async(err, hashedPasscode) =>{
+    registerUser = async (document) =>{
+        hash(document.password, 10, async(err, hashedPasscode) =>{
             if(err) throw err
-            await db.createAndSaveDocument(User, {
-                first_name,
-                last_name,
-                email,
-                username,
-                password: hashedPasscode,
-            })
+            await db.createAndSaveDocument(User, document)
         })
     }
 

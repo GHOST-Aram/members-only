@@ -5,7 +5,7 @@
             <% if(user) { %>
                 <li><a href="/club-house/post">Create Post</a></li>
                 <%if(user.isAdmin){%>
-                    <li><a href="/club-house/members">members</a></li>
+                    <li><a href="/club-house/members">Members</a></li>
                     <li><a href="/admin/member-pass">Set Passcode</a></li>
                 <%}%>
                 <p style="color: green;">Welcome <%=user.first_name%></p>

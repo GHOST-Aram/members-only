@@ -24,7 +24,7 @@ export const signup_post = asyncHandler(async(req, res) =>{
                 last_name: last_name,
                 username: username,
                 email: email,
-                password: password
+                password: password,
             })   
 
             redirect(res, '/')
