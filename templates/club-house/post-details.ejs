@@ -5,14 +5,16 @@
     <% if(user && post){ %>
         <h1><%=post.title%></h1>
         <blockquote><%=post.message%> </blockquote>
-        <%if(user.isAdmin){%>
+        <%if(user.isMember){%>
             <%if(post.author){ %>
                 <h2 class="author">Author: <%=post.author.name%></h2>
             <%}%>
+        <%}%>
+        <% if(user.isAdmin){ %>
             <a href="<%=post.url%>/delete">
                 <button class="delete-btn">Delete</button>
             </a>
-        <%}%>
+        <%} %>
     <%}%>
     <%-include('../partials/footer.ejs') %>
 

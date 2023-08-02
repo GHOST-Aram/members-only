@@ -1,3 +1,6 @@
+export const json = (res, data) =>{
+    res.json(data)
+}
 export const render = (res, template, context) =>{
     res.render(template, context)
 }
