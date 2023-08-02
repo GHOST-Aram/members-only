@@ -8,6 +8,7 @@ import { runConfigurations } from './zghost/app/config.js';
 import { accountsRouter } from './accounts/routes.js';
 import { clubRouter } from './club-house/routes.js';
 import { adminRouter } from './admin/routes.js';
+import { not_found } from './club-house/views/index.js';
 
 runConfigurations()
 
@@ -19,6 +20,7 @@ app.use('/', indexRouter);
 app.use('/accounts', accountsRouter )
 app.use('/club-house', clubRouter)
 app.use('/admin', adminRouter)
+app.use(not_found)
 
 
 //Only development
