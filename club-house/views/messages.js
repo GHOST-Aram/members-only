@@ -13,7 +13,7 @@ export const message_post = (req, res) =>{
 }
 
 export const message_details = asyncHandler(async(req, res) =>{
-    if(!(req.user && req.user.isAuthenticated())){
+    if(!req.isAuthenticated){
         redirect(res, '/accounts/login')
     }
     const post = await db.findById(Message, req.params.id)
