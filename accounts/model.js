@@ -47,4 +47,9 @@ const userSchema = new ModelSchema({
 userSchema.virtual('name').get(function(){
     return `${this.first_name} ${this.last_name}`
 })
+
+userSchema.virtual('url').get(function(){
+    return `/club-house/membsers/${this._id}`
+})
+
 export const User = new Model('User', userSchema)

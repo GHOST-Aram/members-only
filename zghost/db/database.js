@@ -6,6 +6,10 @@ class DB{
         await Model.create(document)
     }
 
+    filterAll = async(Model, filter_doc) =>{
+        return await Model.find(filter_doc)
+    }
+
     findByIdAndUpdate = async(Model, id, update_doc) =>{
         return await Model.findByIdAndUpdate(id, update_doc)
     }

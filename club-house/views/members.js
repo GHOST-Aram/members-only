@@ -5,7 +5,6 @@ import { db } from '../../zghost/db/database.js'
 import { 
     render, 
     sendStatus,
-    json,
     redirect
  } from '../../zghost/utils/http-response.js'
 
@@ -24,4 +23,11 @@ export const join_post = asyncHandler(async(req, res) =>{
     } else {
         sendStatus(res, 400)
     }
+})
+
+export const member_list = asyncHandler(async(req, res) =>{
+    const members = await db.filterAll(User, { isMember: true })
+    render(res, 'club-house/members-list', {
+        title: 'Club Members', members
+    })
 })

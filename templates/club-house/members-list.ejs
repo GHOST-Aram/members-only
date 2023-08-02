@@ -1,0 +1,21 @@
+<%-include('../partials/head.ejs') %>
+<body>
+    <%-include('../partials/nav.ejs') %>
+    <h1>Club Members</h1>
+    <% if(members.length){ %>
+        <ul>
+            <% members.map(member =>{ %>
+                <li>
+                    <a href="<%=member.url%>">
+                        <h2><%=member.name%></h2>
+                    </a>
+                </li>
+          <%})%>
+        </ul>
+    <%} else {%> 
+        <h2>No members have joined the club yet.</h2>
+     <%}%>
+    <%-include('../partials/footer.ejs') %>
+
+</body>
+</html>
