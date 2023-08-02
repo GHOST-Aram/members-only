@@ -1,0 +1,18 @@
+<%-include('../partials/head.ejs') %>
+<body>
+    <%-include('../partials/nav.ejs') %>
+    <h1>Post</h1>
+    <% if(post){ %>
+        <h1><%=post.title%></h1>
+        <p><%=post.message%></p>
+        <%if(post.author){ %>
+            <h2>Author: <%=post.author%></h2>
+        <%}%>
+        <a href="<%=post.url%>/delete">
+            <button class="delete-btn">Delete</button>
+        </a>
+    <%}%>
+    <%-include('../partials/footer.ejs') %>
+
+</body>
+</html>

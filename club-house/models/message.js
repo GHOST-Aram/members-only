@@ -16,4 +16,7 @@ const messageSchema = new ModelSchema({
     }
 })
 
+messageSchema.virtual('url').get(function(){
+    return  `/club-house/message/${this._id}`
+})
 export const Message = new Model('Message', messageSchema)

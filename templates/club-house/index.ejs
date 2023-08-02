@@ -6,7 +6,7 @@
         <ul>
             <% posts.map(post =>{ %>
                 <li>
-                    <a href="/">
+                    <a href="<%=post.url%>">
                         <h2><%=post.title%></h2>
                     </a>
                 </li>

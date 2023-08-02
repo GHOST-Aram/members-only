@@ -8,12 +8,29 @@ a {
   color: #03506e;
 }
 
+aside{
+  position: fixed;
+  left: 0;
+  width: 230px;
+  background: #000;
+  height: 100vh;
+}
 body {
   padding-inline: clamp(1rem, calc(1rem + 8vw), 10%);
   background-color: rgba(188, 188, 188, 0.531);
-  
+  margin-inline-start: 150px;
+  padding-block-end: 15vh;
 }
 
+.delete-btn{
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  border: soild 2px white;
+  border-radius: 4px;
+  padding-inline: 1rem;
+  padding-block: .4rem;
+}
 
 form{
   width: 60%;
@@ -40,10 +57,20 @@ input[type=submit]{
 footer p{
   margin: auto;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-block: 1rem;
+  background-color: #000;
+  color: white;
 }
 nav ul{
   list-style: none;
   display: flex;
   gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
 
