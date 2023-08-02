@@ -19,3 +19,8 @@ export const message_details = asyncHandler(async(req, res) =>{
         post
     })
 })
+
+export const message_delete = asyncHandler(async(req, res) =>{
+    await db.findByIdAndDelete(Message, req.params.id)
+    redirect(res, '/')
+})

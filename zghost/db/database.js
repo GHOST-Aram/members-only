@@ -6,6 +6,10 @@ class DB{
         await Model.create(document)
     }
 
+    findByIdAndDelete = async(Model, id) =>{
+        await Model.findByIdAndDelete(id)
+    }
+
     findById = async(Model, id) =>{
         return await Model.findById(id)
     }
