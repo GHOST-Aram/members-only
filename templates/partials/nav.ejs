@@ -4,6 +4,9 @@
             <li><a href="/">Home</a></li>
             <% if(user) { %>
                 <li><a href="/club-house/post">Create Post</a></li>
+                <%if(!user.isMember){%>
+                    <li><a href="/club-house/members/join">Join</a></li>
+                <%}%>
                 <%if(user.isAdmin){%>
                     <li><a href="/club-house/members">Members</a></li>
                     <li><a href="/admin/member-pass">Set Passcode</a></li>

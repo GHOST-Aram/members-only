@@ -20,12 +20,12 @@ app.use('/', indexRouter);
 app.use('/accounts', accountsRouter )
 app.use('/club-house', clubRouter)
 app.use('/admin', adminRouter)
-app.use(not_found)
 
 
 //Only development
 app.use(catchErros);
 app.use(renderErrors);
+app.use(not_found)
 
 
 
