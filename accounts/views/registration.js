@@ -17,7 +17,7 @@ export const signup_post = asyncHandler(async(req, res) =>{
         email, 
         password,
         confirm_password } = req.body
-        if(password === confirm_password){
+    if(password === confirm_password){
         try {
             await auth.registerUser({
                 first_name: first_name,

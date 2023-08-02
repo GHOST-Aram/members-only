@@ -13,6 +13,9 @@ export const message_post = (req, res) =>{
 }
 
 export const message_details = asyncHandler(async(req, res) =>{
+    if(!(req.user && req.user.isAuthenticated())){
+        redirect(res, '/accounts/login')
+    }
     const post = await db.findById(Message, req.params.id)
     render(res, 'club-house/message-details', { 
         title: 'Message Details',
