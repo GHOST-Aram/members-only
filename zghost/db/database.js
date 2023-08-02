@@ -11,7 +11,7 @@ class DB{
     }
 
     findOne = async(Model, document) =>{
-        return await User.find(document)
+        return await Model.findOne(document)
     }
 
 }

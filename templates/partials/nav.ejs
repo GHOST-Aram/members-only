@@ -3,8 +3,19 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/club-house/members">members</a></li>
+            <li><a href="/club-house/post">Create Post</a></li>
+            <% if(user) { %>
+                <p style="color: green;">Welcome <%=user.first_name%></p>
+                <li>
+                    <a style="color: red;" href="/accounts/logout">
+                    Log out
+                    </a>
+                </li>
+
+            <%} else {%>
             <li><a href="/accounts/login">login</a></li>
             <li><a href="/accounts/sign-up">Sign up</a></li>
+            <%}%>
         </ul>
     </nav>
 </aside>

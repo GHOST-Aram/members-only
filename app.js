@@ -6,11 +6,17 @@ import {
 import { indexRouter } from './routes/index.js'
 import { runConfigurations } from './zghost/app/config.js';
 import { accountsRouter } from './accounts/routes.js';
+import { clubRouter } from './club-house/routes.js';
 
 runConfigurations()
 
+app.use((req, res, next) =>{
+    res.locals.user = req.user
+    next()
+})
 app.use('/', indexRouter);
 app.use('/accounts', accountsRouter )
+app.use('/club-house', clubRouter)
 
 
 //Only development

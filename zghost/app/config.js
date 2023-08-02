@@ -1,7 +1,6 @@
 import { server } from "../utils/server.js";
 import 'dotenv/config'
 import { auth } from "./auth.js";
-import { enableSession } from "../utils/session.js";
 
 
 export const runConfigurations = () =>{
@@ -18,7 +17,7 @@ export const runConfigurations = () =>{
     server.useStaticFiles('static')
 
     // Authentication framwork
-   enableSession({
+   auth.setupSession({
     secrete: process.env.SECRETE,
     maxAge: 3600,
     mongoUri: process.env.MONGODB_URI

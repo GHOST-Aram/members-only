@@ -22,7 +22,7 @@ form{
   margin: auto;
 }
 
-input{
+input, textarea{
   width: 100%;
   padding-inline: 1rem;
   padding-block: .5rem;
@@ -34,7 +34,9 @@ input[type=submit]{
   background-color: rgb(74, 242, 74);
   font-weight: 500;
 }
-
+footer{
+  margin: auto;
+}
 nav ul{
   list-style: none;
   display: flex;

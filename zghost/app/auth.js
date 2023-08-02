@@ -4,6 +4,7 @@ import { User } from "../../accounts/model.js"
 import { db } from "../db/database.js"
 import { app } from "./init.js"
 import LocalStrategy from 'passport-local'
+import { enableSession } from "../utils/session.js"
 
 class Authentication{
 
@@ -39,6 +40,7 @@ class Authentication{
             if(err) 
                 return next(err)
         })
+        next()
     }
 
     registerUser = async ({first_name, last_name, email, username, password}) =>{
@@ -60,7 +62,14 @@ class Authentication{
         })
     }
 
-    
+    setupSession = ({secrete, maxAge, mongoUri}) =>{
+        app.use(enableSession({
+            secrete: secrete,
+            maxAge: maxAge,
+            mongoUri: mongoUri
+        }))
+    }
+
     useLocalStrategy = () => {
         return passport.use(new LocalStrategy(async(username, password, done) => {
             try {
@@ -75,13 +84,13 @@ class Authentication{
 
     #verifyUserInfo = async(username, password, done) => {
 
-        const user = await this.#findUser(username)
+        const user = await db.findOne(User, { username: username })
         if(!user){
             return done(null, false, {
                 message: 'Username not registered'
             })
         }
-        
+        console.log(user.email)
         const isValidPassword = await this.#validatePassword(
             password, user.password
         )
@@ -94,11 +103,8 @@ class Authentication{
         }
     }
 
-    #findUser = async(username) => {
-        return await db.findOne(User, { username: username })
-    }
-
     #validatePassword = async(inputPassword, savedPassowrd) => {
+        console.log(inputPassword, savedPassowrd)
         return compareSync(inputPassword, savedPassowrd)
     }
 }

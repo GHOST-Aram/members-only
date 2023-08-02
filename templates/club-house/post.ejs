@@ -1,0 +1,42 @@
+<%-include('../partials/head.ejs') %>
+<body>
+    <%-include('../partials/nav.ejs') %>
+    <main>
+        <form action="" method="post">
+            <h1>Write Post</h1>
+            <div>
+                <label for="title">
+                    Title
+                    <input 
+                        placeholder="title" 
+                        name="title" 
+                        id="title" 
+                        minlength="4" 
+                        maxlength="200" 
+                        required 
+                        type="text"
+                    >
+                </label>
+            </div>
+            <div>
+                <label for="message">
+                    Message
+                    <textarea 
+                        name="message" 
+                        id="message" 
+                        cols="30" 
+                        rows="10"
+                        required
+                        minlength="50"
+                        maxlength="300"
+                    >Write what's on your mind here ...
+                    </textarea>
+                </label>
+            </div>
+            <!-- <input type="text" name="test"> -->
+           <div><input type="submit" value="Post"></div>
+        </form>
+    </main>
+    <%-include('../partials/footer.ejs') %>
+</body>
+</html>
