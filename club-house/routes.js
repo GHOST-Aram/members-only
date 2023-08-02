@@ -5,6 +5,7 @@ const clubRouter = Router()
 
 clubRouter.get('/post', message_get)
 clubRouter.post('/post', message_post)
-clubRouter.get('/message/:id', message_details)
+clubRouter.get('/post/:id', message_details)
+clubRouter.get('/post/:id/delete', )
 
 export {clubRouter}
