@@ -2,11 +2,14 @@ import { User } from '../../accounts/model.js'
 import { Code } from '../../admin/model.js'
 import { asyncHandler } from '../../zghost/app/init.js'
 import { db } from '../../zghost/db/database.js'
+import { isAuth } from '../../zghost/utils/http-requests.js'
 import { 
     render, 
     sendStatus,
     redirect,
-    render401
+    render401,
+    isAdmin,
+    isMember
  } from '../../zghost/utils/http-response.js'
 
 export const join_get = (req, res) =>{
@@ -43,7 +46,8 @@ export const attendants_get = asyncHandler(async(req, res) =>{
 })
 
 export const attendant_details = asyncHandler(async(req, res) =>{
-    if(req.isAuthenticated() && res.locals.user.isAdmin){
+    
+    if(isAuth(req) && isAdmin(res) && isMember(res)){
         const attendant = await db.findById(User, req.params.id)
         render(res, 'club-house/attendant-details', {
             title: 'Attendant Details', attendant

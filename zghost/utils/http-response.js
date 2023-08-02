@@ -1,3 +1,5 @@
+export const isAdmin =  (res) => res.locals.user.isAdmin
+export const isMember = (res) =>  res.locals.user.isMember
 export const json = (res, data) =>{
     res.json(data)
 }
