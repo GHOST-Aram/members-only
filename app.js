@@ -23,10 +23,4 @@ app.use('/admin', adminRouter)
 app.use(not_found)
 
 
-//Only development
-app.use(catchErros);
-app.use(renderErrors);
-
-
-
 export { app }
