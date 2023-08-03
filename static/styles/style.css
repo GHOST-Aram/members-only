@@ -66,12 +66,12 @@ input[type=submit]{
   font-weight: 500;
 }
 
-input:invalid{
+input:invalid, textarea:invalid{
   background-color: rgb(239, 101, 101);
   border: solid 2px red;
 }
 
-input:valid{
+input:valid, textarea:valid{
   background-color: rgb(46, 215, 167);
   border: solid 2px green;
 }
@@ -97,11 +97,6 @@ nav ul{
   gap: 1rem;
   display: flex;
   flex-direction: column;
-}
-
-textarea:invalid{
-  background-color: rgb(239, 101, 101);
-  border: solid 2px red;
 }
 
 

@@ -2,23 +2,25 @@
 <body>
     <%-include('../partials/nav.ejs') %>
     <main>
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <h1>Write Post</h1>
-            <div>
+            <div class="title">
                 <label for="title">
                     Title
                     <input 
-                        placeholder="title" 
+                        placeholder="Title" 
                         name="title" 
                         id="title" 
                         minlength="4" 
                         maxlength="200" 
                         required 
                         type="text"
+                        pattern="[\w\s]+"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="message">
                 <label for="message">
                     Message
                     <textarea 
@@ -29,9 +31,10 @@
                         required
                         minlength="50"
                         maxlength="300"
-                    >Write what's on your mind here ...
-                    </textarea>
+                        pattern = "[\w\s]+"
+                    ></textarea>
                 </label>
+                <p class="error"></p>
             </div>
             <!-- <input type="text" name="test"> -->
            <div><input type="submit" value="Post"></div>
@@ -39,4 +42,5 @@
     </main>
     <%-include('../partials/footer.ejs') %>
 </body>
+<script src="/scripts/post.js"></script>
 </html>
