@@ -1,7 +1,11 @@
-import { config } from "dotenv";
 import { app, express } from "../app/init.js";
+import { config } from "dotenv";
 import { connect } from "mongoose";
+import compression from 'compression'
+import helmet from 'helmet'
 import morgan from "morgan";
+
+
 class Server{
     connectToMongoDB = (DB_URI) =>{
         connect(DB_URI).then(
@@ -22,7 +26,13 @@ class Server{
     setViewEngine = (engine) =>{
         app.set('view engine', engine)
     }
-
+    
+    useCompression = () =>{
+        app.set(compression())
+    }
+    useHelmet = () => {
+        app.use(helmet())
+    }
     useJSON = () =>{
         app.use(express.json())
     }
@@ -30,7 +40,6 @@ class Server{
     useLogger = (mode) =>{
         app.use(morgan(mode))
     }
-
     useStaticFiles = (staticdir) =>{
         app.use(express.static(staticdir))
     }
