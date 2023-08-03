@@ -3,9 +3,9 @@
     <%-include('../partials/nav.ejs') %>
     <main>
 
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <h1>Sign Up for the club.</h1>
-            <div>
+            <div class="first-name">
                 <label for="first-name">
                     First Name
                     <input 
@@ -16,10 +16,12 @@
                         maxlength="200" 
                         required 
                         type="text"
+                        pattern="[A-Za-z]+"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="last-name">
                 <label for="last-name">
                     Last Name
                     <input 
@@ -32,8 +34,9 @@
                         type="text"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="email">
                 <label for="email">
                     Email
                     <input 
@@ -44,10 +47,12 @@
                         maxlength="200" 
                         required 
                         type="email"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="username">
                 <label for="username">
                     Username
                     <input 
@@ -60,8 +65,9 @@
                         type="text"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="password">
                 <label for="password">
                     Password
                     <input 
@@ -74,8 +80,9 @@
                         type="password"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="confirm-password">
                 <label for="confirm-password">
                     Confirm Password
                     <input 
@@ -88,10 +95,12 @@
                         type="password"
                     >
                 </label>
+                <p class="error"></p>
             </div>
            <div><input type="submit" value="Sign Up"></div>
         </form>
     </main>
     <%-include('../partials/footer.ejs') %>
 </body>
+<script src="/scripts/signup.js"></script>
 </html>
