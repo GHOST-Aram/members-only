@@ -4,7 +4,7 @@ import { redirect, render } from "../../zghost/utils/http-response.js"
 import { asyncHandler } from "../../zghost/app/init.js"
 
 export const member_pass_get = (req, res) => {
-    render(res, 'admin/member-pass', {title: 'Membership Pascode'})
+    render(res, 'club-house/member-pass', {title: 'Membership Pascode'})
 }
 
 export const member_pass_post = asyncHandler(async(req, res) => {

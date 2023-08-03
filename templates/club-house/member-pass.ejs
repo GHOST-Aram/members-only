@@ -1,7 +1,7 @@
 <%-include('../partials/head.ejs') %>
 <body>
     <%-include('../partials/nav.ejs') %>
-    <h1>Create Membership Password</h1>
+    <h1><%=title %></h1>
     <form action="" method="post" novalidate>
         <div>
             <label for="mem-code">
@@ -12,7 +12,7 @@
                     id="mem-code" 
                     minlength="8"
                     maxlength="24"
-                    placeholder="secrete code eg. lovelace"
+                    placeholder="Secrete code eg. lovelace"
                     required
                     pattern="[A-Za-z\s?]+"
                 >

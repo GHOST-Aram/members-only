@@ -11,13 +11,12 @@ import {
     isAdmin,
     isMember,
     render400,
-    render403
  } from '../../zghost/utils/http-response.js'
 
 export const join_get = (req, res) =>{
     //Display this form for authenticated none members only
     if(isAuth(req) && !isMember(res) && isMember) {
-        render(res, 'club-house/join', {title: 'Join Club'})
+        render(res, 'club-house/member-pass', {title: 'Join Club'})
     } else {
         render401(res, 'unauthorized')
     }

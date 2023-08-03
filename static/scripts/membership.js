@@ -2,6 +2,9 @@ const form = document.querySelector('form')
 const textbox = document.querySelector('input')
 const error = document.querySelector('.error')
 
+if(textbox.validity.valueMissing){
+    error.textContent = 'This is a required field. You cannot leave it blank.' 
+} 
 
 textbox.addEventListener('input', (event) =>{
     // Check 
@@ -22,10 +25,6 @@ textbox.addEventListener('input', (event) =>{
             error.textContent = `Please provide a code of length 
             greater than or equal to ${textbox.minLength}`
         }
-        
-        if(textbox.validity.valueMissing){
-            error.textContent = 'This is a required field. You cannot leave it blank.' 
-        } 
     }
 })
 
