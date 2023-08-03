@@ -2,7 +2,7 @@
 <body>
     <%-include('../partials/nav.ejs') %>
     <h1>Create Membership Password</h1>
-    <form action="" method="post">
+    <form action="" method="post" novalidate>
         <div>
             <label for="mem-code">
                 Membership Passcode
@@ -10,11 +10,14 @@
                     type="text" 
                     name="code" 
                     id="mem-code" 
-                    minlength="12"
-                    maxlength="18"
+                    minlength="8"
+                    maxlength="24"
                     placeholder="secrete code eg. lovelace"
+                    required
+                    pattern="[A-Za-z\s?]+"
                 >
             </label>
+            <p class="error"></p>
         </div>
         <div>
             <input type="submit" value="Set Code">
@@ -22,4 +25,5 @@
     </form>
     <%-include('../partials/footer.ejs') %>
 </body>
+<script src="/scripts/membership.js"></script>
 </html>

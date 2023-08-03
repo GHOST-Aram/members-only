@@ -39,7 +39,10 @@ button{
 .delete-btn{
   background-color: red;
 }
-
+.error{
+  color: red;
+  font-size: .8rem;
+}
 form{
   width: 60%;
   display: flex;
@@ -62,6 +65,17 @@ input[type=submit]{
   background-color: rgb(74, 242, 74);
   font-weight: 500;
 }
+
+input:invalid{
+  background-color: rgb(239, 101, 101);
+  border: solid 2px red;
+}
+
+input:valid{
+  background-color: rgb(46, 215, 167);
+  border: solid 2px green;
+}
+
 footer p{
   margin: auto;
   text-align: center;
@@ -83,6 +97,11 @@ nav ul{
   gap: 1rem;
   display: flex;
   flex-direction: column;
+}
+
+textarea:invalid{
+  background-color: rgb(239, 101, 101);
+  border: solid 2px red;
 }
 
 
