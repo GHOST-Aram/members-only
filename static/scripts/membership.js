@@ -29,10 +29,10 @@ textbox.addEventListener('input', (event) =>{
     }
 })
 
-form.addEventListener('submit', (event) =>{
-    if(!textbox.validity.valid){
-        event.preventDefault()
-    } else {
+form.addEventListener('submit', event =>{
+    if(form.checkValidity()){
         form.submit()
+    } else {
+        event.preventDefault()
     }
 })

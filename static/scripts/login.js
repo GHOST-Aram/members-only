@@ -53,9 +53,9 @@ password.addEventListener('input', (event) =>{
 })
 
 form.addEventListener('submit', event =>{
-    if(form.validity.valid){
-        event.preventDefault()
-    } else {
+    if(form.checkValidity()){
         form.submit()
+    } else {
+        event.preventDefault()
     }
 })
