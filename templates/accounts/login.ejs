@@ -2,23 +2,25 @@
 <body>
     <%-include('../partials/nav.ejs') %>
     <main>
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <h1>Sign in.</h1>
-            <div>
+            <div class="username">
                 <label for="username">
                     Username
                     <input 
                         placeholder="username" 
                         name="username" 
                         id="username" 
-                        minlength="2" 
-                        maxlength="100" 
+                        minlength="2"
+                        maxlength="20"
                         required 
                         type="text"
+                        pattern="[A-Za-z]+[A-Za-z0-9]*"
                     >
                 </label>
+                <p class="error"></p>
             </div>
-            <div>
+            <div class="password">
                 <label for="password">
                     Password
                     <input 
@@ -29,8 +31,10 @@
                         maxlength="24" 
                         required 
                         type="password"
+                        pattern="[A-Za-z0-9]+"
                     >
                 </label>
+                <p class="error"></p>
             </div>
             <!-- <input type="text" name="test"> -->
            <div><input type="submit" value="Log in"></div>
@@ -38,4 +42,5 @@
     </main>
     <%-include('../partials/footer.ejs') %>
 </body>
+<script src="/scripts/login.js"></script>
 </html>
