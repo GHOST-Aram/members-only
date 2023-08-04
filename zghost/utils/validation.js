@@ -63,6 +63,16 @@ class Validitor{
                 ${ minLength } and ${ maxlength } characters.`
             )
             .escape()
+            .custom(async(value) =>{
+                const regex = /[A-Za-z\s]+/
+
+                if(!regex.test(value)){
+                    throw new Error(
+                        `Value ${identifier} field can only contain 
+                        aplhabetical letters and optional spaces`
+                    )
+                }
+            })
     }
 
     validateUsername = (field) =>{
