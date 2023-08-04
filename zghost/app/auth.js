@@ -13,6 +13,7 @@ class Authentication{
         return passport.authenticate('local', {
            successRedirect: successRedirect,
            failureRedirect: failureRedirect,
+           failureMessage: 'Incorrect username or password!'
             
         })
     }

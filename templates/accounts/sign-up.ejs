@@ -2,8 +2,12 @@
 <body>
     <%-include('../partials/nav.ejs') %>
     <main>
-
         <form action="" method="post" novalidate>
+            <%  if(errors){ %>
+                <% errors.map(error =>{ %>
+                   <p class="error"><%=error.field%>: <%=error.msg%></p> 
+               <% }) %>
+           <% } %>
             <h1>Sign Up for the club.</h1>
             <div class="first-name">
                 <label for="first-name">
@@ -16,7 +20,7 @@
                         maxlength="200" 
                         required 
                         type="text"
-                        pattern="[A-Za-z]+"
+                        pattern="[A-Za-z\s]+"
                     >
                 </label>
                 <p class="error"></p>

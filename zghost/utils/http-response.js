@@ -27,6 +27,10 @@ export const render400 = (res, template, context) =>{
     res.status(400).render(template, context)
 }
 
+export const render500 = (res, template, context) =>{
+    res.status(400).render(template, context)
+}
+
 export const sendStatus = (res, errorcode) =>{
     res.sendStatus(errorcode)
 }

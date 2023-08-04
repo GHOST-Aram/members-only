@@ -1,8 +1,10 @@
 import { body, validationResult } from "express-validator";
+import { db } from "../db/database.js";
+import { User } from "../../accounts/model.js";
 
 class Validitor{
-    validateName = (identifier) => {
-        return body(identifier)
+    validateName = (field) => {
+        return body(field)
             .trim()
             .notEmpty()
             .withMessage('Please ensure to fill all the required name fields.')
@@ -11,8 +13,9 @@ class Validitor{
             .escape()
     }
 
-    validateEmail = (identifier) =>{
-        return body(identifier)
+
+    validateEmail = (field) =>{
+        return body(field)
             .trim()
             .notEmpty()
             .withMessage('Please ensure to include your email.')
@@ -21,19 +24,70 @@ class Validitor{
             .escape()
             .isEmail()
             .withMessage('Please enter a valid email')
+            .custom(async(email) =>{
+                //Check if email has been reistered.
+                const user = await db.findOne(User, { email })
+                if(user){
+                    throw new Error(
+                        `The Email ${ email } has already been registered.`
+                    )
+                }
+            })
             
     }
 
-    validatePassword = (identifier) =>{
-        return body(identifier)
+    validatePassword = (field) =>{
+        return body(field)
             .trim()
             .notEmpty()
-            .withMessage('Please ensure to fill in all the password fields')
+            .withMessage('Password field cannot be empty.')
             .isLength({ min: 8, max: 24 })
-            .withMessage('Please enter a password of length between 8 and 24.')
+            .withMessage(
+                'Please enter a password of length between 8 and 24.'
+            )
             .isAlphanumeric()
             .withMessage('Please Entern an alphanumeric password.')
             .escape()
+    }
+
+    validateUsername = (field) =>{
+        return body(field)
+            .trim()
+            .notEmpty()
+            .withMessage('Username field cannot be empty')
+            .isLength({ min: 2, max: 20 })
+            .withMessage('Username length must be between 2 and 20 characters.')
+            .escape()
+            .custom(async username =>{
+                //Check username against accepted characters only
+                const regex = /^[A-Za-z]+[A-Za-z0-9_]*$/
+                if(!regex.test(username)){
+                    throw new Error(
+                        'Username can only contain alphanumeric'+ 
+                        'characters and an optional underscore.'
+                    )
+                }
+            })
+    }
+
+    runValidations = (validations) =>{
+        return async( req, res, next) =>{
+            for(let validation of validations){
+                const result = await validation.run(req)
+
+                if(result.errors.length){
+                    break
+                }
+            }
+
+            const errors = validationResult(req)
+
+            if(errors.isEmpty()){
+                return next()
+            } else {
+                res.status(400).json({errors: errors.array()})
+            }
+        }
     }
 }
 
