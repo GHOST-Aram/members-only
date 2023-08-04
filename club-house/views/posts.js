@@ -1,6 +1,6 @@
 import { asyncHandler } from "../../zghost/app/init.js"
 import { db } from "../../zghost/db/database.js"
-import { redirect, render, isMember, render403, render400, render500 } from "../../zghost/utils/http-response.js"
+import { redirect, render, isMember, render403, render400, render500, isAdmin } from "../../zghost/utils/http-response.js"
 import { Post } from "../models/post.js"
 import { isAuth } from "../../zghost/utils/http-requests.js"
 import { validationResult, validator } from "../../zghost/utils/validation.js"
@@ -72,11 +72,15 @@ export const post_details = asyncHandler(async(req, res) =>{
             post
         })
     } else{
-        render(res, 'unauthorized', {title: 'Unauthorized'})
+        render(res.status(403), 'unauthorized', {title: 'Unauthorized'})
     }
 })
 
 export const post_delete = asyncHandler(async(req, res) =>{
-    await db.findByIdAndDelete(Post, req.params.id)
-    redirect(res, '/')
+    if(isAdmin(res)){
+        await db.findByIdAndDelete(Post, req.params.id)
+        redirect(res, '/')
+    } else {
+        render(res.status(403), 'unauthorized', {title: 'Unauthorized'})
+    }
 })

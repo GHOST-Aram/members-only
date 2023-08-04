@@ -1,9 +1,9 @@
 const form = document.querySelector('form')
 const textbox = document.querySelector('input')
-const error = document.querySelector('.error')
+const error = document.querySelector('.code .error')
 
 if(textbox.validity.valueMissing){
-    error.textContent = 'This is a required field. You cannot leave it blank.' 
+    error.textContent = 'This is a required field.' 
 } 
 
 textbox.addEventListener('input', (event) =>{
