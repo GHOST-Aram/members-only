@@ -50,6 +50,21 @@ class Validitor{
             .escape()
     }
 
+    validatePlainText = (field, { identifier, minLength, maxlength }) =>{
+        return body(field)
+            .trim()
+            .notEmpty()
+            .withMessage(
+                `${ identifier } field cannot be empty.`
+            )
+            .isLength({ min: minLength, max: maxlength})
+            .withMessage(
+                `${ identifier } field should be of lenght between 
+                ${ minLength } and ${ maxlength } characters.`
+            )
+            .escape()
+    }
+
     validateUsername = (field) =>{
         return body(field)
             .trim()

@@ -3,6 +3,11 @@
     <%-include('../partials/nav.ejs') %>
     <main>
         <form action="" method="post" novalidate>
+            <%if(errors){ %>
+                <%errors.map(error =>{ %>
+                    <p class="error"><%=error.msg%></p>
+                <%})%>
+            <%}%>
             <h1>Write Post</h1>
             <div class="title">
                 <label for="title">
@@ -36,7 +41,6 @@
                 </label>
                 <p class="error"></p>
             </div>
-            <!-- <input type="text" name="test"> -->
            <div><input type="submit" value="Post"></div>
         </form>
     </main>
