@@ -3,6 +3,11 @@
     <%-include('../partials/nav.ejs') %>
     <h1><%=title %></h1>
     <form action="" method="post" novalidate>
+        <% if(errors){ %>
+            <%errors.map(error =>{ %>
+                 <p class="error"><%=error.msg%></p>
+            <%})%>
+        <%}%>
         <div>
             <label for="mem-code">
                 Membership Passcode
@@ -25,5 +30,5 @@
     </form>
     <%-include('../partials/footer.ejs') %>
 </body>
-<script src="/scripts/membership.js"></script>
+<!-- <script src="/scripts/membership.js"></script> -->
 </html>
